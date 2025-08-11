@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contoh Pemilihan Elemen</title>
+    <style>
+      .nav-item {
+        display: inline-block;
+        margin-right: 15px;
+        cursor: pointer;
+        color: blue;
+      }
+      button {
+        margin: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="header">Selamat Datang</h1>
+
+    <nav>
+      <span class="nav-item">Home</span>
+      <span class="nav-item">About</span>
+      <span class="nav-item">Contact</span>
+    </nav>
+
+    <section>
+      <p>Ini adalah paragraf pertama.</p>
+      <p>Ini adalah paragraf kedua.</p>
+    </section>
+
+    <div>
+      <button>Button 1</button>
+      <button>Button 2</button>
+      <button>Button 3</button>
+    </div>
+
+    <script>
+      // 1. Memilih berdasarkan ID
+      const header = document.getElementById("header");
+      header.style.color = "red";
+      header.textContent = "Judul Halaman Telah Diubah!";
+
+      // 2. Memilih berdasarkan class name
+      const navItems = document.getElementsByClassName("nav-item");
+      for (let i = 0; i < navItems.length; i++) {
+        navItems[i].style.fontWeight = "bold";
+      }
+
+      // 3. Memilih berdasarkan tag name
+      const paragraphs = document.getElementsByTagName("p");
+      for (let i = 0; i < paragraphs.length; i++) {
+        paragraphs[i].style.backgroundColor = "#f0f0f0";
+      }
+
+      // 4. Memilih menggunakan querySelector (CSS selector, hanya elemen pertama)
+      const firstButton = document.querySelector("button");
+      firstButton.style.backgroundColor = "green";
+      firstButton.style.color = "white";
+
+      // 5. Memilih semua elemen yang cocok (NodeList)
+      const allButtons = document.querySelectorAll("button");
+      allButtons.forEach((btn, index) => {
+        btn.addEventListener("click", () => {
+          alert(`Kamu menekan Button ${index + 1}`);
+        });
+      });
+    </script>
+  </body>
+</html>
